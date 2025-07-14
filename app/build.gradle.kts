@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.compose.foundation)
     implementation(libs.wear.tooling.preview)
     implementation(libs.activity.compose)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.core.splashscreen)
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.ui.test.junit4)
