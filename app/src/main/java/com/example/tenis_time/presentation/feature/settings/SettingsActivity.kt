@@ -5,8 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.tenis_time.presentation.feature.settings.components.MatchMode
-import com.example.tenis_time.presentation.feature.settings.components.TieBreakMode
 
 class SettingsActivity : ComponentActivity() {
 
@@ -16,13 +14,13 @@ class SettingsActivity : ComponentActivity() {
         }
     }
 
+    val viewModel = SettingsViewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             SettingsScreen(
-                matchMode = MatchMode.THREE_SETS,
-                isAdvantageActivated = true,
-                tieBreakMode = TieBreakMode.NORMAL,
+                state = viewModel.state,
                 onMatchModeClick = {},
                 onAdvantageModeClick = {},
                 onTieBreakModeClick = {},

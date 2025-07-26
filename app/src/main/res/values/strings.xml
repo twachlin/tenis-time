@@ -7,4 +7,14 @@
     <string name="hello_world">From the Square world,\nHello, %1$s!</string>
 
     <string name="home_screen_title">Tennis Time</string>
+    <string name="advantage_title">Advantage</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="match_mode_title">Match mode</string>
+    <string name="match_mode_3_sets_text">3 sets</string>
+    <string name="match_mode_5_sets_text">5 sets</string>
+    <string name="match_mode_tie_break_text">Tie break</string>
+    <string name="tie_break_title">Tie break</string>
+    <string name="tie_break_normal_text">Normal</string>
+    <string name="tie_break_super_text">Super</string>
 </resources>

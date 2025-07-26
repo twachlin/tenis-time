@@ -9,8 +9,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.example.tenis_time.presentation.feature.settings.SettingsActivity
 
 class HomeActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
 
@@ -19,7 +21,14 @@ class HomeActivity : ComponentActivity() {
         setTheme(android.R.style.Theme_DeviceDefault)
 
         setContent {
-            HomeScreen()
+            HomeScreen(
+                onSettingsClick = { navigateToSettings() }
+            )
         }
+    }
+
+    fun navigateToSettings() {
+        val intent = SettingsActivity.getIntent(this)
+        startActivity(intent)
     }
 }
