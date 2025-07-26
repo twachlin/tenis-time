@@ -2,6 +2,7 @@ package com.example.tenis_time.presentation.feature.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,7 +29,11 @@ import com.example.tenis_time.presentation.theme.darkGray
 import com.example.tenis_time.presentation.theme.primaryGreen
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    onListClick: () -> Unit = {},
+    onPlayClick: () -> Unit = {},
+    onSettingsClick: () -> Unit = {},
+) {
     Scaffold(
         timeText = {
             TimeText()
@@ -38,6 +43,9 @@ fun HomeScreen() {
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(horizontal = 8.dp, vertical = 24.dp),
+                onListClick = onListClick,
+                onSettingsClick = onSettingsClick,
+                onPlayClick = onPlayClick,
             )
         }
     )
@@ -45,7 +53,10 @@ fun HomeScreen() {
 
 @Composable
 fun HomeScreenContent(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onListClick: () -> Unit = {},
+    onSettingsClick: () -> Unit = {},
+    onPlayClick: () -> Unit = {},
 ) {
     Column(
         modifier = modifier,
@@ -61,9 +72,15 @@ fun HomeScreenContent(
             horizontalArrangement = Arrangement.spacedBy(2.dp)
         ) {
             RoundedIcon(
+                modifier = Modifier
+                    .clickable { onListClick() },
                 iconRes = R.drawable.ic_list
             )
-            Box(modifier = Modifier.padding(top = 4.dp)) {
+            Box(
+                modifier = Modifier
+                    .padding(top = 4.dp)
+                    .clickable { onPlayClick() }
+            ) {
                 Icon(
                     modifier = Modifier
                         .size(56.dp),
@@ -73,6 +90,8 @@ fun HomeScreenContent(
                 )
             }
             RoundedIcon(
+                modifier = Modifier
+                    .clickable { onSettingsClick() },
                 iconRes = R.drawable.ic_settings
             )
         }
