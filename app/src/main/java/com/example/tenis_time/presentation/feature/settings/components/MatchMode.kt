@@ -29,6 +29,6 @@ private fun getMatchModeText(matchMode: MatchMode): String {
 enum class MatchMode {
     THREE_SETS,
     FIVE_SETS,
-    TIE_BREAK,
+    TIE_BREAK;
     // TODO -> PERSONALIZED,
 }

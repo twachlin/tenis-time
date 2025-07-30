@@ -21,9 +21,9 @@ class SettingsActivity : ComponentActivity() {
         setContent {
             SettingsScreen(
                 state = viewModel.state,
-                onMatchModeClick = {},
-                onAdvantageModeClick = {},
-                onTieBreakModeClick = {},
+                onMatchModeClick = viewModel::onMatchModeClicked,
+                onAdvantageModeClick = viewModel::onAdvantageModeClicked,
+                onTieBreakModeClick = viewModel::onTieBreakModeClick,
             )
         }
     }

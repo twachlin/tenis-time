@@ -9,6 +9,6 @@ import com.example.tenis_time.presentation.feature.settings.components.TieBreakM
 class SettingsScreenState(
 ) {
     var matchMode by mutableStateOf(MatchMode.THREE_SETS)
-    val isAdvantageActivated by mutableStateOf(false)
-    val tieBreakMode by mutableStateOf(TieBreakMode.NORMAL)
+    var isAdvantageActivated by mutableStateOf(false)
+    var tieBreakMode by mutableStateOf(TieBreakMode.NORMAL)
 }
