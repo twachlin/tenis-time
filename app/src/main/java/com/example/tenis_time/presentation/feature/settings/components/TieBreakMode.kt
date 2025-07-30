@@ -29,5 +29,5 @@ private fun getTieBreakText(
 
 enum class TieBreakMode {
     NORMAL,
-    SUPER,
+    SUPER;
 }
