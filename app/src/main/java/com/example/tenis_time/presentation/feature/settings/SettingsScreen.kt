@@ -25,7 +25,9 @@ fun SettingsScreen(
     onAdvantageModeClick: () -> Unit,
     onTieBreakModeClick: () -> Unit,
 ) {
-    val listState = rememberScalingLazyListState()
+    val listState = rememberScalingLazyListState(
+        initialCenterItemIndex = 0
+    )
     TennisScaffold(
         content = { modifier ->
             SettingsScreenContent(
@@ -53,7 +55,8 @@ fun SettingsScreenContent(
         modifier = modifier,
         state = listState,
         autoCentering = AutoCenteringParams(itemIndex = 0),
-        contentPadding = PaddingValues(vertical = 12.dp, horizontal = 8.dp),
+        contentPadding = PaddingValues(vertical = 16.dp, horizontal = 8.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
         content = {
             item {
                 MatchMode(
