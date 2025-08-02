@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.android.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -39,6 +41,12 @@ android {
 }
 
 dependencies {
+    // data
+    implementation(libs.preferences.data.store)
+
+    // Dependency Injection
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
     implementation(libs.play.services.wearable)
     implementation(platform(libs.compose.bom))
