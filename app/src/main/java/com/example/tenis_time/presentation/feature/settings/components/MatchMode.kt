@@ -4,9 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.tenis_time.R
+import com.example.tenis_time.domain.model.MatchMode
 
 @Composable
-fun MatchMode(
+fun MatchModeComponent(
     matchMode: MatchMode,
     modifier: Modifier = Modifier
 ) {
@@ -24,11 +25,4 @@ private fun getMatchModeText(matchMode: MatchMode): String {
         MatchMode.FIVE_SETS -> stringResource(R.string.match_mode_5_sets_text)
         MatchMode.TIE_BREAK -> stringResource(R.string.match_mode_tie_break_text)
     }
-}
-
-enum class MatchMode {
-    THREE_SETS,
-    FIVE_SETS,
-    TIE_BREAK;
-    // TODO -> PERSONALIZED,
 }

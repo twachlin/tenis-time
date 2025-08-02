@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.tenis_time.R
+import com.example.tenis_time.domain.model.TieBreakMode
 
 @Composable
 fun TieBreakMode(
@@ -25,9 +26,4 @@ private fun getTieBreakText(
         TieBreakMode.NORMAL -> stringResource(R.string.tie_break_normal_text)
         TieBreakMode.SUPER -> stringResource(R.string.tie_break_super_text)
     }
-}
-
-enum class TieBreakMode {
-    NORMAL,
-    SUPER;
 }

@@ -13,14 +13,17 @@ import androidx.wear.compose.foundation.lazy.AutoCenteringParams
 import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
 import androidx.wear.compose.foundation.lazy.ScalingLazyListState
 import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
+import com.example.tenis_time.domain.model.MatchMode
+import com.example.tenis_time.domain.model.SettingsState
+import com.example.tenis_time.domain.model.TieBreakMode
 import com.example.tenis_time.presentation.feature.commons.components.TennisScaffold
 import com.example.tenis_time.presentation.feature.settings.components.AdvantageMode
-import com.example.tenis_time.presentation.feature.settings.components.MatchMode
+import com.example.tenis_time.presentation.feature.settings.components.MatchModeComponent
 import com.example.tenis_time.presentation.feature.settings.components.TieBreakMode
 
 @Composable
 fun SettingsScreen(
-    state: SettingsScreenState,
+    state: SettingsState,
     onMatchModeClick: () -> Unit,
     onAdvantageModeClick: () -> Unit,
     onTieBreakModeClick: () -> Unit,
@@ -44,7 +47,7 @@ fun SettingsScreen(
 
 @Composable
 fun SettingsScreenContent(
-    state: SettingsScreenState,
+    state: SettingsState,
     listState: ScalingLazyListState,
     onMatchModeClick: () -> Unit,
     onAdvantageModeClick: () -> Unit,
@@ -59,7 +62,7 @@ fun SettingsScreenContent(
         verticalArrangement = Arrangement.spacedBy(4.dp),
         content = {
             item {
-                MatchMode(
+                MatchModeComponent(
                     matchMode = state.matchMode,
                     modifier = Modifier
                         .fillMaxWidth()
@@ -70,7 +73,7 @@ fun SettingsScreenContent(
                 when (state.matchMode) {
                     MatchMode.THREE_SETS, MatchMode.FIVE_SETS -> {
                         NormalMatchModeSettings(
-                            isAdvantageActivated = state.isAdvantageActivated,
+                            isAdvantageActivated = state.isAdvantageEnabled,
                             tieBreakMode = state.tieBreakMode,
                             onAdvantageModeClick = { onAdvantageModeClick() },
                             onTieBreakModeClick = { onTieBreakModeClick() },
