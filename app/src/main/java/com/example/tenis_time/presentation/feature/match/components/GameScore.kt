@@ -54,7 +54,7 @@ fun GameScoreComponent(
 }
 
 enum class GameScore(val value: String) {
-    Zero(value = "0"),
+    Love(value = "0"),
     Fifteen(value = "15"),
     Thirty(value = "30"),
     Forty(value = "40"),
@@ -73,7 +73,7 @@ private fun GameScoreComponentPreview() {
 @Composable
 private fun GameScorePreview() {
     GameScoresComponent(
-        rivalScore = GameScore.Zero,
+        rivalScore = GameScore.Love,
         mineScore = GameScore.Thirty,
     )
 }

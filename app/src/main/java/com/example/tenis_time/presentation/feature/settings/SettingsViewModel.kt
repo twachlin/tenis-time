@@ -16,8 +16,11 @@ class SettingsViewModel @Inject constructor(
     private val repository: SettingsRepository
 ): ViewModel() {
 
-    val uiState: StateFlow<SettingsState> = repository.settingsFlow.stateIn(viewModelScope,
-        SharingStarted.WhileSubscribed(5_000), SettingsState())
+    val uiState: StateFlow<SettingsState> = repository.settingsFlow.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5_000),
+        initialValue = SettingsState()
+    )
 
     fun updateSettings(state: SettingsState) = viewModelScope.launch {
         repository.save(state)
