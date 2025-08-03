@@ -40,6 +40,12 @@
             android:exported="true"
             android:taskAffinity=""
             android:theme="@style/MainActivityTheme.Starting" />
+
+        <activity
+            android:name=".presentation.feature.match.MatchActivity"
+            android:exported="true"
+            android:taskAffinity=""
+            android:theme="@style/MainActivityTheme.Starting" />
     </application>
 
 </manifest>

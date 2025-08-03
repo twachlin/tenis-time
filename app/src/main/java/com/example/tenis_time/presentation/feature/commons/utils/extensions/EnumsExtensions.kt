@@ -1,4 +1,4 @@
-package com.example.tenis_time.presentation.utils.extensions
+package com.example.tenis_time.presentation.feature.commons.utils.extensions
 
 inline fun <reified T> T.nextEnum(): T where T : Enum<T> {
     val all = enumValues<T>()

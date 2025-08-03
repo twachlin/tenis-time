@@ -31,8 +31,8 @@ import com.example.tenis_time.presentation.theme.primaryGreen
 @Composable
 fun HomeScreen(
     onListClick: () -> Unit = {},
-    onPlayClick: () -> Unit = {},
     onSettingsClick: () -> Unit = {},
+    onPlayClick: () -> Unit = {},
 ) {
     Scaffold(
         timeText = {
@@ -83,7 +83,8 @@ fun HomeScreenContent(
             ) {
                 Icon(
                     modifier = Modifier
-                        .size(56.dp),
+                        .size(56.dp)
+                        .clickable { onPlayClick() },
                     painter = painterResource(R.drawable.ic_play),
                     contentDescription = null,
                     tint = primaryGreen

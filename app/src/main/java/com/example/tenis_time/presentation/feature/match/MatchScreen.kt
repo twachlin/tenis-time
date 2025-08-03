@@ -1,5 +1,6 @@
 package com.example.tenis_time.presentation.feature.match
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,27 +22,23 @@ import androidx.wear.tooling.preview.devices.WearDevices
 import com.example.tenis_time.presentation.feature.match.components.GameScore
 import com.example.tenis_time.presentation.feature.match.components.GameScoresComponent
 import com.example.tenis_time.presentation.feature.match.components.SetsScore
+import com.example.tenis_time.presentation.theme.backgroundColor
 
 @Composable
 fun MatchScreen(
-    rivalName: String = "Them",
-    mineName: String = "Us",
-    rivalSets: List<Int>,
-    mineSets: List<Int>,
-    rivalGameScore: GameScore,
-    mineGameScore: GameScore,
+    viewModel: MatchViewModel,
 ) {
     Scaffold(
         timeText = { TimeText() },
         vignette = { Vignette(VignettePosition.TopAndBottom) },
         content = {
             MatchScreenContent(
-                rivalName = rivalName,
-                mineName = mineName,
-                rivalSets = rivalSets,
-                mineSets = mineSets,
-                rivalGameScore = rivalGameScore,
-                mineGameScore = mineGameScore,
+                rivalName = viewModel.uiState.scoreState.rivalName,
+                mineName = viewModel.uiState.scoreState.mineName,
+                rivalSets = viewModel.uiState.scoreState.rivalSets,
+                mineSets = viewModel.uiState.scoreState.mineSets,
+                rivalGameScore = viewModel.uiState.scoreState.rivalGameScore,
+                mineGameScore = viewModel.uiState.scoreState.mineGameScore,
             )
         }
     )
@@ -58,7 +55,9 @@ fun MatchScreenContent(
     modifier: Modifier = Modifier
 ) {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = backgroundColor),
         contentAlignment = Alignment.Center
     ) {
         Row(
@@ -104,7 +103,9 @@ private fun MatchSetsScore(
 @Preview(device = WearDevices.SMALL_ROUND, showSystemUi = true, showBackground = true)
 @Composable
 private fun MatchScreenContentPreview() {
-    MatchScreen(
+    MatchScreenContent(
+        rivalName = "Them",
+        mineName = "Us",
         rivalSets = listOf(4, 6, 3),
         mineSets = listOf(6, 3, 4),
         rivalGameScore = GameScore.Thirty,

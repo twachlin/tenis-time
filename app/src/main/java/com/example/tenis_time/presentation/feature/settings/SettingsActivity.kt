@@ -7,7 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.runtime.collectAsState
-import com.example.tenis_time.presentation.utils.extensions.nextEnum
+import com.example.tenis_time.presentation.feature.commons.utils.extensions.nextEnum
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
